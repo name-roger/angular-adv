@@ -7,19 +7,36 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                
-                <li class="nav-small-cap">PERSONAL</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard <span
-                                class="label label-rouded label-themecolor pull-right">4</span></span></a>
+
+                <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img
+                            src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs
+                        </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="index.html">Minimal </a></li>
-                        <li><a href="index2.html">Analytical</a></li>
-                        <li><a href="index3.html">Demographical</a></li>
-                        <li><a href="index4.html">Modern</a></li>
+                        <li><a href="javascript:void()">My Profile </a></li>
+                        <li><a href="javascript:void()">My Balance</a></li>
+                        <li><a href="javascript:void()">Inbox</a></li>
+                        <li><a routerLink="account-settings">Account Setting</a></li>
+                        <li><a routerLink="/login">Logout</a></li>
                     </ul>
                 </li>
-
+                <li class="nav-devider"></li>
+                <li class="nav-small-cap">PERSONAL</li>
+                
+                <li *ngFor="let item of menuItems"> 
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-gauge"></i>
+                        <span class="hide-menu">{{ item.titulo }} 
+                            <span class="label label-rouded label-themecolor pull-right">{{ item.submenu.length }}</span>
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let subMenuItem of item.submenu">
+                            <a [routerLink]="subMenuItem.url"> {{ subMenuItem.titulo }} </a>
+                        </li>
+                        
+                    </ul>
+                </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                             class="mdi mdi-widgets"></i><span class="hide-menu">Widgets</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -30,7 +47,7 @@
                     </ul>
                 </li>
                 <li class="nav-small-cap">EXTRA COMPONENTS</li>
-                
+
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                             class="mdi mdi-file-chart"></i><span class="hide-menu">Charts</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -45,7 +62,7 @@
                         <li><a href="chart-peity.html">Peity Charts</a></li>
                     </ul>
                 </li>
-                
+
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
